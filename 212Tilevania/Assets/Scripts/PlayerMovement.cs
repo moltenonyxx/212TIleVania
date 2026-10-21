@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator myAnimator;
     CapsuleCollider2D myCollider;
+    float gravityScaleatStart;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCollider = GetComponent<CapsuleCollider2D>();
+        gravityScaleatStart = rb.gravityScale;
     }
 
     void Update()
@@ -30,7 +32,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnJump(InputValue value)
     {
-        if(!myCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if(!myCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) 
+        {
+            return; 
+        }
         if (value.isPressed)
         {
             rb.linearVelocity += new Vector2(0f, jumpSpeed);
@@ -55,7 +60,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void ClimbLadder()
     {
-        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) { return; }
+        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) 
+        {
+            rb.gravityScale = gravityScaleatStart;
+            return; 
+        }
+        rb.gravityScale = 0;
         Vector2 climbVelocity = new Vector2(rb.linearVelocity.x, moveInput.y * climbSpeed);
         rb.linearVelocity = climbVelocity;
     }
