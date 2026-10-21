@@ -70,6 +70,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 climbVelocity = new Vector2(rb.linearVelocity.x, moveInput.y * climbSpeed);
         rb.linearVelocity = climbVelocity;
         bool hasVerticalSpeed = Mathf.Abs(rb.linearVelocity.y) > Mathf.Epsilon;
-        myAnimator.SetBool("isClimbing", true);
+        myAnimator.SetBool("isClimbing", hasVerticalSpeed);
     }
 }
