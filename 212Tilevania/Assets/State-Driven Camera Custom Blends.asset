@@ -14,10 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBlenderSettings
   CustomBlends:
   - From: Run Cam
-    To: Idol Cam
+    To: Idle Cam
     Blend:
-      Style: 0
-      Time: 0
+      Style: 1
+      Time: 1
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: Idle Cam
+    To: Run Cam
+    Blend:
+      Style: 1
+      Time: 1
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: '**ANY CAMERA**'
+    To: Climb Cam
+    Blend:
+      Style: 1
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: Climb Cam
+    To: '**ANY CAMERA**'
+    Blend:
+      Style: 1
+      Time: 1
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
