@@ -87,9 +87,9 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = deathKick;
             isAlive = false;
             myAnimator.SetTrigger("Dying");
-            Destroy(rb);
-            Destroy(myCollider);
-            Destroy(myFeetCollider);
+            Debug.Log("You Died!");
         }
     }
+
+
 }
