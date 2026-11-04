@@ -22,11 +22,11 @@ public class Bullet : MonoBehaviour
         bulletRb.linearVelocity = new Vector2(xSpeed, 0f);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
         Destroy(gameObject);
     }
