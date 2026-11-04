@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    
     [SerializeField] float bulletSpeed = 20f;
     float xSpeed;
     Rigidbody2D bulletRb;
 
     PlayerMovement player;
 
+    
     void Start()
     {
         bulletRb = GetComponent<Rigidbody2D>();

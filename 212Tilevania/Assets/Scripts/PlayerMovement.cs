@@ -97,6 +97,8 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             Debug.Log("You Died!");
+            //Calling a method from another script, method needs to be public
+            FindAnyObjectByType<GameSession>().ProcessPlayerDeath();
         }
     }
 
