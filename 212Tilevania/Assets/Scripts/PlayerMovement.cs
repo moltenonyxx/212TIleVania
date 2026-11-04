@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
         {
             rb.linearVelocity = deathKick;
             isAlive = false;
