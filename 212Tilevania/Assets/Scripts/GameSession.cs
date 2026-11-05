@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,11 @@ public class GameSession : MonoBehaviour
 
 
     [SerializeField] int playerLives = 3;
-    
+
+    [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI scoerText;
+
+
     void Awake()
     {
         //starts with 4.35
@@ -20,6 +25,11 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    void Start()
+    {
+        livesText.text = playerLives.ToString();
     }
 
     public void ProcessPlayerDeath()
@@ -39,6 +49,8 @@ public class GameSession : MonoBehaviour
         playerLives--;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+        livesText.text = playerLives.ToString();
+
     }
 
     void ResetGameSession()
@@ -50,10 +62,7 @@ public class GameSession : MonoBehaviour
     //when player dies do certain things
     //reduce # of lives
     //if no lives then restart the whole game
-    void Start()
-    {
-        
-    }
+
 
     void Update()
     {
