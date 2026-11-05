@@ -7,9 +7,10 @@ public class GameSession : MonoBehaviour
 
 
     [SerializeField] int playerLives = 3;
+    [SerializeField] int score = 0;
 
     [SerializeField] TextMeshProUGUI livesText;
-    [SerializeField] TextMeshProUGUI scoerText;
+    [SerializeField] TextMeshProUGUI scoreText;
 
 
     void Awake()
@@ -30,6 +31,7 @@ public class GameSession : MonoBehaviour
     void Start()
     {
         livesText.text = playerLives.ToString();
+        scoreText.text = score.ToString();
     }
 
     public void ProcessPlayerDeath()
@@ -42,6 +44,12 @@ public class GameSession : MonoBehaviour
         {
             ResetGameSession();
         }
+    }
+
+    public void AddToScore(int pointsToAdd)
+    {
+        score += pointsToAdd;
+        scoreText.text = score.ToString();
     }
 
     void TakeLife()
@@ -63,9 +71,4 @@ public class GameSession : MonoBehaviour
     //reduce # of lives
     //if no lives then restart the whole game
 
-
-    void Update()
-    {
-        
-    }
 }
