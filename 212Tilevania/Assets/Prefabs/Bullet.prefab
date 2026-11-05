@@ -170,3 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3137b00a69bc85e4d9775dd3478e55c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  enemyPointsSFX: {fileID: 8300000, guid: c1916fc9b3a650b4e9b300c55b3252f2, type: 3}
+  bulletSpeed: 20
+  pointsforEnemyKill: 50

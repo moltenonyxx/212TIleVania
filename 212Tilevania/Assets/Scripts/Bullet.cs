@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
+
+    [SerializeField] AudioClip enemyPointsSFX;
+
     [SerializeField] float bulletSpeed = 20f;
+    [SerializeField] int pointsforEnemyKill = 50;
     float xSpeed;
     Rigidbody2D bulletRb;
 
@@ -29,6 +32,8 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
+            FindFirstObjectByType<GameSession>().AddToScore(pointsforEnemyKill);
+            AudioSource.PlayClipAtPoint(enemyPointsSFX, transform.position);
         }
         Destroy(gameObject);
     }
